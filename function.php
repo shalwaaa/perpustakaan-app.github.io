@@ -21,10 +21,10 @@ function tambah_anggota($data)
     $kode       = htmlspecialchars($data["id_anggota"]);
     $nama_anggota = htmlspecialchars($data["nama_anggota"]);
     $alamat     = htmlspecialchars($data["alamat"]);
-    $tgl_lahir    = date("Y-m-d");
+    $tgl_kedatangan    = date("Y-m-d");
     $no_hp      = htmlspecialchars($data["no_hp"]);
 
-    $query = "INSERT INTO anggota VALUES ('$kode', '$nama_anggota', '$alamat', '$tgl_lahir',  '$no_hp')";
+    $query = "INSERT INTO anggota VALUES ('$kode', '$nama_anggota', '$alamat', '$tgl_kedatangan',  '$no_hp')";
 
     mysqli_query($koneksi, $query);
 

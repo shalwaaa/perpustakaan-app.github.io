@@ -87,7 +87,7 @@ require_once('function.php')
                                     <td><?= $no++; ?></td>
                                     <td><?= $agt['nama_anggota'] ?></td>
                                     <td><?= $agt['alamat'] ?></td>
-                                    <td><?= $agt['tgl_lahir'] ?></td>
+                                    <td><?= $agt['tgl_kedatangan'] ?></td>
                                     <td><?= $agt['no_hp'] ?></td>
                                     <td>
                                         <a onclick="return confirm('Yakin nih mau dihapus?')" class="btn btn-danger" href="hapus-anggota.php?id=<?= $agt['id_anggota'] ?>">Hapus</a>
@@ -146,9 +146,9 @@ require_once('function.php')
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="tgl_lahir" class="col-sm-3 col-form-label">Tanggal kedatangan</label>
+                                        <label for="tgl_kedatangan" class="col-sm-3 col-form-label">Tanggal kedatangan</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="tgl_lahir" name="tgl_lahir">
+                                            <input type="text" class="form-control" id="tgl_kedatangan" name="tgl_kedatangan">
                                         </div>
                                     </div>
                                     <div class="form-group row">
