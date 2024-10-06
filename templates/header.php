@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -45,7 +46,7 @@
           <!-- menu profile quick info -->
           <div class="profile clearfix">
             <div class="profile_pic">
-              <img src="assets/images/img.jpg" alt="..." class="img-circle profile_img">
+              <img src="assets/production/images/img.jpg" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
@@ -62,11 +63,11 @@
               <h3>General</h3>
               <ul class="nav side-menu">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a>
-                <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-edit"></i> Data <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="anggota.php">Anggota</a></li>
-                    <li><a href="form_advanced.html">Petugas</a></li>
-                    <li><a href="form_validation.html">Buku</a></li>
+                    <li><a href="petugas.php">Petugas</a></li>
+                    <li><a href="buku.php">Buku</a></li>
                   </ul>
                 </li>
               </ul>
@@ -76,11 +77,12 @@
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="contacts.html">Contacts</a></li>
+                    <li><a href="contacts.php">Contacts</a></li>
                     <li><a href="profile.html">Profile</a></li>
                   </ul>
                 </li>
                 <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
+                <li><a href="landing-page.php"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
               </ul>
             </div>
 

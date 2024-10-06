@@ -58,6 +58,35 @@
 <!-- Custom Theme Scripts -->
 <script src="assets/build/js/custom.min.js"></script>
 
+<script>
+  $(document).ready(function() {
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function() {
+        $(this).remove();
+      });
+    }, 4000);
+  });
+</script>
+
+<script>
+  // auto hide notifikasi
+  $(document).ready(function() {
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function() {
+        $(this).remove();
+      });
+    }, 4000);
+  });
+
+  // ambil data id petugas dari tombol ganti password ke modal ganti password
+  $('#gantiPassword').on('show.bs.modal', function(event) {
+    var button = $(event.relatedTarget)
+    var id = button.data('id')
+    console.log(id)
+    var modal = $(this)
+    modal.find('.modal-body #id_petugas').val(id)
+  })
+</script>
 </body>
 
 </html>
