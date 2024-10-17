@@ -95,6 +95,7 @@ require_once('function.php')
                                         <button type="button" class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#gantiPassword" data-id="<?= $ptg['id_petugas'] ?>">
                                             <span class="text">Ganti Password</span>
                                         </button>
+                                        <a class="btn btn-success" href="edit-petugas.php?id=<?= $ptg['id_petugas'] ?>">Ubah</a>
                                         <a onclick="confirm('Yakin nih mau dihapus?')" class="btn btn-danger" href="hapus-petugas.php?id=<?= $ptg['id_petugas'] ?>">Hapus</a>
                                     </td>
                                 </tr>

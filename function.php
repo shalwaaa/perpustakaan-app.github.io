@@ -87,6 +87,29 @@ function ubah_anggota($data)
 
     return mysqli_affected_rows($koneksi);
 }
+
+function ubah_petugas($data)
+{
+    global $koneksi;
+
+    $id       = htmlspecialchars($data["id_petugas"]);
+    $nama_petugas = htmlspecialchars($data["nama_petugas"]);
+    $alamat     = htmlspecialchars($data["alamat"]);
+    $tanggal_bergabung = htmlspecialchars($data["tanggal_bergabung"]);
+    $no_hp      = htmlspecialchars($data["no_hp"]);
+
+
+    $query = "UPDATE petugas SET 
+                nama_petugas = '$nama_petugas',
+                alamat ='$alamat',
+                tanggal_bergabung = '$tanggal_bergabung',
+                no_hp = '$no_hp'
+                WHERE id_petugas = '$id'";
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
 // function hapus data petugas
 function hapus_petugas($id)
 {
