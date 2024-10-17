@@ -12,7 +12,7 @@ require_once('function.php')
     <?php
     //jika ada tombol simpan
     if (isset($_POST['simpan'])) {
-        if (tambah_buku($_POST) > 0) {
+        if (pengembalian_buku($_POST) > 0) {
     ?>
             <div class="alert alert-success" role="alert">
                 Data kesimpen yey!
@@ -31,7 +31,7 @@ require_once('function.php')
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Peminjaman Buku</h2>
+                <h2>pengembalian Buku</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -64,8 +64,7 @@ require_once('function.php')
                                 <th class="column-title">Judul Buku</th>
                                 <th class="column-title">Pengarang</th>
                                 <th class="column-title">Jenis Buku</th>
-                                <th class="column-title">Tanggal Peminjaman</th>
-                                <th class="column-title no-link last"><span class="nobr">Action</span>
+                                <th class="column-title">Tanggal pengembalian</th>
                                 </th>
                                 <th class="bulk-actions" colspan="7">
                                     <a class="antoo" style="color:#fff; font-weight:500;">Select All ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
@@ -78,23 +77,20 @@ require_once('function.php')
                             //penomoran auto-increment
                             $no = 1;
                             // query untuk memanggil semua data dari table buku
-                            $buku = query("SELECT * FROM buku");
-                            foreach ($buku as $bk) : ?>
+                            $pengembalian = query("SELECT * FROM pengembalian");
+                            foreach ($pengembalian as $pg) : ?>
 
                                 <tr class="odd pointer">
                                     <td class="a-center">
                                         <input type="checkbox" class="flat" name="table_records">
                                     </td>
                                     <td><?= $no++; ?></td>
-                                    <td><?= $bk['nama_peminjam'] ?></td>
-                                    <td><?= $bk['judul_buku'] ?></td>
-                                    <td><?= $bk['pengarang'] ?></td>
-                                    <td><?= $bk['jenis_buku'] ?></td>
-                                    <td><?= $bk['tanggal_peminjaman'] ?></td>
-                                    <td>
-                                        <a onclick="return confirm('Yakin nih mau dihapus?')" class="btn btn-danger" href="hapus-buku.php?id=<?= $bk['id_buku'] ?>">Hapus</a>
-                                    </td>
-                                </tr> 
+                                    <td><?= $pg['nama_peminjam'] ?></td>
+                                    <td><?= $pg['judul_buku'] ?></td>
+                                    <td><?= $pg['pengarang'] ?></td>
+                                    <td><?= $pg['jenis_buku'] ?></td>
+                                    <td><?= $pg['tanggal_pengembalian'] ?></td>
+                                </tr>
                             <?php endforeach; ?>
 
                         </tbody>
@@ -103,7 +99,7 @@ require_once('function.php')
 
                 <?php
                 //mengambil data barang dari tabel dengan kode terbesar
-                $query = mysqli_query($koneksi, "SELECT max(id_buku) as kodeTerbesar FROM buku");
+                $query = mysqli_query($koneksi, "SELECT max(id_buku) as kodeTerbesar FROM pengembalian");
                 $data = mysqli_fetch_array($query);
                 $kodeBuku = $data['kodeTerbesar'];
 
@@ -116,7 +112,7 @@ require_once('function.php')
                 //membuat kode barang baru
 
                 //angka yang di ambil tadi di gabungkan dengan kode huruf yang kita inginkan, misalnya b
-                $huruf = "bk";
+                $huruf = "pg";
                 $kodeBuku = $huruf . sprintf('%03s', $urutan);
                 ?>
 
@@ -126,7 +122,7 @@ require_once('function.php')
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="tambahModalLabel">
-                                    Tambah Buku
+                                    pengembalian buku
                                 </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -160,9 +156,9 @@ require_once('function.php')
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="tanggal_peminjaman" class="col-sm-3 col-form-label">Tanggal Peminjaman</label>
+                                        <label for="tanggal_pengembalian" class="col-sm-3 col-form-label">Tanggal pengembalian</label>
                                         <div class="col-sm-8">
-                                            <input type="date" class="form-control" id="tanggal_peminjaman" name="tanggal_peminjaman">
+                                            <input type="date" class="form-control" id="tanggal_pengembalian" name="tanggal_pengembalian">
                                         </div>
                                     </div>
                             </div>

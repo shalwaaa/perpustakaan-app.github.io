@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +37,8 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>PERPUSTAKAAN</span></a>
+            <!-- <a href="index.php" class="site_title"><i class="fa fa-paw"></i> <span>PERPUSTAKAAN</span></a> -->
+            <a href="index.php" class="site_title"><i class="fa fa-institution"></i> <span>PERPUSTAKAAN</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -67,9 +67,15 @@
                   <ul class="nav child_menu">
                     <li><a href="anggota.php">Anggota</a></li>
                     <li><a href="petugas.php">Petugas</a></li>
-                    <li><a href="buku.php">Buku</a></li>
                   </ul>
                 </li>
+                <li><a><i class="fa fa-book"></i> Data Buku <span class="fa fa-chevron-down"></span> </a>
+                  <ul class="nav child_menu">
+                    <li><a href="buku.php">Peminjaman</a></li>
+                    <li><a href="pengembalian.php">Pengembalian</a></li>
+                  </ul>
+                </li>
+                <li><a href="laporan.php"><i class="fa fa-file-text-o"></i> Laporan </a></li>
               </ul>
             </div>
             <div class="menu_section">
@@ -82,7 +88,6 @@
                   </ul>
                 </li>
                 <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
-                <li><a href="landing-page.php"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
               </ul>
             </div>
 

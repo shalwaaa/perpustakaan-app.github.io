@@ -62,7 +62,7 @@ require_once('function.php')
                                 <th class="column-title">No</th>
                                 <th class="column-title">Nama</th>
                                 <th class="column-title">Alamat</th>
-                                <th class="column-title">Tanggal Kedatangan</th>
+                                <th class="column-title">Tanggal Bergabung</th>
                                 <th class="column-title">No. Telp </th>
                                 <th class="column-title no-link last"><span class="nobr">Action</span>
                                 </th>
@@ -87,10 +87,12 @@ require_once('function.php')
                                     <td><?= $no++; ?></td>
                                     <td><?= $agt['nama_anggota'] ?></td>
                                     <td><?= $agt['alamat'] ?></td>
-                                    <td><?= $agt['tgl_kedatangan'] ?></td>
+                                    <td><?= $agt['tgl_bergabung'] ?></td>
                                     <td><?= $agt['no_hp'] ?></td>
                                     <td>
+                                        <a class="btn btn-success" href="edit-anggota.php?id=<?= $agt['id_anggota'] ?>">Ubah</a>
                                         <a onclick="return confirm('Yakin nih mau dihapus?')" class="btn btn-danger" href="hapus-anggota.php?id=<?= $agt['id_anggota'] ?>">Hapus</a>
+
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -146,9 +148,9 @@ require_once('function.php')
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="tgl_kedatangan" class="col-sm-3 col-form-label">Tanggal kedatangan</label>
+                                        <label for="tgl_bergabung" class="col-sm-3 col-form-label">Tanggal Bergabung</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="tgl_kedatangan" name="tgl_kedatangan">
+                                            <input type="date" class="form-control" id="tgl_bergabung" name="tgl_bergabung">
                                         </div>
                                     </div>
                                     <div class="form-group row">

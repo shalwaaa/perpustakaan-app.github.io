@@ -63,6 +63,7 @@ require_once('function.php')
                                 <th class="column-title">Username</th>
                                 <th class="column-title">Nama</th>
                                 <th class="column-title">Alamat</th>
+                                <th class="column-title">Tanggal Bergabung</th>
                                 <th class="column-title">No. Telp</th>
                                 <th class="column-title no-link last"><span class="nobr">Action</span>
                                 </th>
@@ -88,6 +89,7 @@ require_once('function.php')
                                     <td><?= $ptg['username'] ?></td>
                                     <td><?= $ptg['nama_petugas'] ?></td>
                                     <td><?= $ptg['alamat'] ?></td>
+                                    <td><?= $ptg['tanggal_bergabung'] ?></td>
                                     <td><?= $ptg['no_hp'] ?></td>
                                     <td>
                                         <button type="button" class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#gantiPassword" data-id="<?= $ptg['id_petugas'] ?>">
@@ -156,6 +158,12 @@ require_once('function.php')
                                         <label for="alamat" class="col-sm-3 col-form-label">Alamat</label>
                                         <div class="col-sm-8">
                                             <textarea id="alamat" class="form-control" name="alamat"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="tanggal_bergabung" class="col-sm-3 col-form-label">Tanggal Bergabung</label>
+                                        <div class="col-sm-8">
+                                            <input type="date" class="form-control" id="tanggal_bergabung" name="tanggal_bergabung">
                                         </div>
                                     </div>
                                     <div class="form-group row">
