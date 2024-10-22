@@ -60,6 +60,7 @@ require_once('function.php')
                                     <input type="checkbox" id="check-all" class="flat">
                                 </th>
                                 <th class="column-title">No</th>
+                                <th class="column-title">NIK</th>
                                 <th class="column-title">Nama</th>
                                 <th class="column-title">Alamat</th>
                                 <th class="column-title">Tanggal Bergabung</th>
@@ -85,11 +86,15 @@ require_once('function.php')
                                         <input type="checkbox" class="flat" name="table_records">
                                     </td>
                                     <td><?= $no++; ?></td>
+                                    <td><?= $agt['NIK'] ?></td>
                                     <td><?= $agt['nama_anggota'] ?></td>
                                     <td><?= $agt['alamat'] ?></td>
                                     <td><?= $agt['tgl_bergabung'] ?></td>
                                     <td><?= $agt['no_hp'] ?></td>
                                     <td>
+                                        <button type="button" class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#gantiPassword" data-id="<?= $ptg['id_petugas'] ?>">
+                                            <span class="text">Ganti Password</span>
+                                        </button>
                                         <a class="btn btn-success" href="edit-anggota.php?id=<?= $agt['id_anggota'] ?>">Ubah</a>
                                         <a onclick="return confirm('Yakin nih mau dihapus?')" class="btn btn-danger" href="hapus-anggota.php?id=<?= $agt['id_anggota'] ?>">Hapus</a>
 
@@ -136,9 +141,21 @@ require_once('function.php')
                                 <form method="post" action="">
                                     <input type="hidden" name="id_anggota" id="id_anggota" value="<?= $kodeAnggota ?>">
                                     <div class="form-group row">
+                                        <label for="NIK" class="col-sm-3 col-form-label">NIK</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="NIK" class="form-control" name="NIK">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label for="nama_anggota" class="col-sm-3 col-form-label">Nama Anggota</label>
                                         <div class="col-sm-8">
                                             <input type="text" id="nama_anggota" class="form-control" name="nama_anggota">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="password" class="col-sm-3 col-form-label">Password</label>
+                                        <div class="col-sm-8">
+                                            <input type="password" id="password" class="form-control" name="password">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -170,6 +187,36 @@ require_once('function.php')
                 </div>
 
                 <!-- /.container-fluid -->
+
+                <!-- Modal GAnti Password-->
+                <div class="modal fade" id="gantiPassword" tabindex="-1" aria-labelledby="gantiPasswordLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="gantiPasswordLabel">Ganti Password</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" action="">
+                                    <input type="hidden" name="id_petugas" id="id_petugas">
+                                    <div class="form-group row">
+                                        <label for="password" class="col-sm-4 col-form-label">Password Baru</label>
+                                        <div class="col-sm-7">
+                                            <input type="password" id="password" class="form-control" name="password">
+                                        </div>
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+                                <button type="submit" name="ganti_password" class="btn btn-primary">Simpan</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

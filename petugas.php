@@ -61,6 +61,7 @@ require_once('function.php')
                                 </th>
                                 <th class="column-title">No</th>
                                 <th class="column-title">Username</th>
+                                <th class="column-title">NIK</th>
                                 <th class="column-title">Nama</th>
                                 <th class="column-title">Alamat</th>
                                 <th class="column-title">Tanggal Bergabung</th>
@@ -87,6 +88,7 @@ require_once('function.php')
                                     </td>
                                     <td><?= $no++; ?></td>
                                     <td><?= $ptg['username'] ?></td>
+                                    <td><?= $ptg['NIK']?></td>
                                     <td><?= $ptg['nama_petugas'] ?></td>
                                     <td><?= $ptg['alamat'] ?></td>
                                     <td><?= $ptg['tanggal_bergabung'] ?></td>
@@ -141,6 +143,12 @@ require_once('function.php')
                                         <label for="username" class="col-sm-3 col-form-label">Username</label>
                                         <div class="col-sm-8">
                                             <input type="text" id="username" class="form-control" name="username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="NIK" class="col-sm-3 col-form-label">NIK</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" id="nama_petugas" class="form-control" name="NIK">
                                         </div>
                                     </div>
                                     <div class="form-group row">

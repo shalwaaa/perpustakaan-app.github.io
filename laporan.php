@@ -80,9 +80,9 @@ require_once('function.php'); // tambahkan titik koma
                                 $pengembalian = query("SELECT * FROM pengembalian WHERE id_buku = '{$bk['id_buku']}'");
 
                                 // Jika ada data pengembalian, tampilkan tanggal pengembaliannya
-                                if (!empty($pengembalian)) {
+                                if (count($pengembalian) > 0) {
                                     $pg = $pengembalian[0]; // Ambil data pengembalian
-                                    $tanggal_pengembalian = $pg['tanggal_pengembalian'];
+                                    $tanggal_pengembalian = date("d-m-Y", strtotime($pg['tanggal_pengembalian']));
                                 } else {
                                     // Jika tidak ada pengembalian, tampilkan "belum kembali"
                                     $tanggal_pengembalian = "belum kembali";

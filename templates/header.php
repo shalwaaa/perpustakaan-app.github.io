@@ -63,7 +63,7 @@
               <h3>General</h3>
               <ul class="nav side-menu">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a>
-                <li><a><i class="fa fa-edit"></i> Data <span class="fa fa-chevron-down"></span></a>
+                <li><a><i class="fa fa-edit"></i> Data User<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="anggota.php">Anggota</a></li>
                     <li><a href="petugas.php">Petugas</a></li>

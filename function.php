@@ -19,12 +19,13 @@ function tambah_anggota($data)
     global $koneksi;
 
     $kode       = htmlspecialchars($data["id_anggota"]);
+    $NIK        = htmlspecialchars($data['NIK']);
     $nama_anggota = htmlspecialchars($data["nama_anggota"]);
     $alamat     = htmlspecialchars($data["alamat"]);
     $tgl_bergabung    = htmlspecialchars($data["tgl_bergabung"]);
     $no_hp      = htmlspecialchars($data["no_hp"]);
 
-    $query = "INSERT INTO anggota VALUES ('$kode', '$nama_anggota', '$alamat', '$tgl_bergabung',  '$no_hp')";
+    $query = "INSERT INTO anggota VALUES ('$kode','$NIK', '$nama_anggota', '$alamat', '$tgl_bergabung',  '$no_hp')";
 
     mysqli_query($koneksi, $query);
 
@@ -49,6 +50,7 @@ function tambah_petugas($data)
 
     $kode       = htmlspecialchars($data["id_petugas"]);
     $username       = htmlspecialchars($data["username"]);
+    $NIK            = htmlspecialchars($data['NIK']);
     $nama_petugas       = htmlspecialchars($data["nama_petugas"]);
     $password       = htmlspecialchars($data["password"]);
     $alamat     = htmlspecialchars($data["alamat"]);
@@ -58,7 +60,7 @@ function tambah_petugas($data)
     // ENKRIPSI password dengan password_hash
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $query = "INSERT INTO petugas VALUES ('$kode', '$username', '$nama_petugas', '$password_hash', '$alamat', '$tanggal_bergabung', '$no_hp')";
+    $query = "INSERT INTO petugas VALUES ('$kode', '$username','$NIK', '$nama_petugas', '$password_hash', '$alamat', '$tanggal_bergabung', '$no_hp')";
 
     mysqli_query($koneksi, $query);
 
@@ -70,6 +72,7 @@ function ubah_anggota($data)
     global $koneksi;
 
     $id       = htmlspecialchars($data["id_anggota"]);
+    $NIK        = htmlspecialchars($data['NIK']);
     $nama_anggota = htmlspecialchars($data["nama_anggota"]);
     $alamat     = htmlspecialchars($data["alamat"]);
     $tgl_bergabung = htmlspecialchars($data["tgl_bergabung"]);
@@ -77,6 +80,7 @@ function ubah_anggota($data)
 
 
     $query = "UPDATE anggota SET 
+                NIK = '$NIK',
                 nama_anggota = '$nama_anggota',
                 alamat ='$alamat',
                 tgl_bergabung = '$tgl_bergabung',
@@ -93,6 +97,7 @@ function ubah_petugas($data)
     global $koneksi;
 
     $id       = htmlspecialchars($data["id_petugas"]);
+    $NIK        = htmlspecialchars($data['NIK']);
     $nama_petugas = htmlspecialchars($data["nama_petugas"]);
     $alamat     = htmlspecialchars($data["alamat"]);
     $tanggal_bergabung = htmlspecialchars($data["tanggal_bergabung"]);
@@ -100,6 +105,7 @@ function ubah_petugas($data)
 
 
     $query = "UPDATE petugas SET 
+                NIK = '$NIK',
                 nama_petugas = '$nama_petugas',
                 alamat ='$alamat',
                 tanggal_bergabung = '$tanggal_bergabung',

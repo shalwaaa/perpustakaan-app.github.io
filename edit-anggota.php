@@ -37,6 +37,12 @@ if (isset($_GET['id'])) {
             <form method="post" action="">
                 <input type="hidden" name="id_anggota" id="id_anggota" value="<?= $id ?>">
                 <div class="form-group row">
+                    <label for="NIK" class="col-sm-3 col-form-label">NIK</label>
+                    <div class="col-sm-8">
+                        <input type="text" id="NIK" class="form-control" name="NIK" value="<?= $data['NIK'] ?>">
+                    </div>
+                </div>
+                <div class="form-group row">
                     <label for="nama_anggota" class="col-sm-3 col-form-label">Nama anggota</label>
                     <div class="col-sm-8">
                         <input type="text" id="nama_anggota" class="form-control" name="nama_anggota" value="<?= $data['nama_anggota'] ?>">

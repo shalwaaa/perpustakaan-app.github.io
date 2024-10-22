@@ -112,7 +112,7 @@ require_once('function.php')
                 //membuat kode barang baru
 
                 //angka yang di ambil tadi di gabungkan dengan kode huruf yang kita inginkan, misalnya b
-                $huruf = "pg";
+                $huruf = "bk";
                 $kodeBuku = $huruf . sprintf('%03s', $urutan);
                 ?>
 
