@@ -1,13 +1,13 @@
 <?php
 include_once('templates/header.php');
-require_once('function.php')
+require_once('function.php');
 ?>
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-4" style="font-size: 50px;">Perpustakaan Sekolah RPL</h1>
+    <h1 class="h3 mb-4" style="font-size: 50px;">Buku</h1>
 
     <?php
     //jika ada tombol simpan
@@ -31,7 +31,7 @@ require_once('function.php')
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Peminjaman Buku</h2>
+                <h2>Buku</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
@@ -60,11 +60,11 @@ require_once('function.php')
                                     <input type="checkbox" id="check-all" class="flat">
                                 </th>
                                 <th class="column-title">No</th>
-                                <th class="column-title">Nama Peminjam</th>
                                 <th class="column-title">Judul Buku</th>
                                 <th class="column-title">Pengarang</th>
-                                <th class="column-title">Jenis Buku</th>
-                                <th class="column-title">Tanggal Peminjaman</th>
+                                <th class="column-title">Tahun terbit</th>
+                                <th class="column-title">Penerbit</th>
+                                <th class="column-title">Status</th>
                                 <th class="column-title no-link last"><span class="nobr">Action</span>
                                 </th>
                                 <th class="bulk-actions" colspan="7">
@@ -77,7 +77,7 @@ require_once('function.php')
                             <?php
                             //penomoran auto-increment
                             $no = 1;
-                            // query untuk memanggil semua data dari table buku
+                            // query untuk memanggil semua data dari table users
                             $buku = query("SELECT * FROM buku");
                             foreach ($buku as $bk) : ?>
 
@@ -86,15 +86,15 @@ require_once('function.php')
                                         <input type="checkbox" class="flat" name="table_records">
                                     </td>
                                     <td><?= $no++; ?></td>
-                                    <td><?= $bk['nama_peminjam'] ?></td>
                                     <td><?= $bk['judul_buku'] ?></td>
                                     <td><?= $bk['pengarang'] ?></td>
-                                    <td><?= $bk['jenis_buku'] ?></td>
-                                    <td><?= $bk['tanggal_peminjaman'] ?></td>
+                                    <td><?= $bk['tahun_terbit'] ?></td>
+                                    <td><?= $bk['penerbit'] ?></td>
+                                    <td><?= $bk['status'] ?></td>
                                     <td>
-                                        <a onclick="return confirm('Yakin nih mau dihapus?')" class="btn btn-danger" href="hapus-buku.php?id=<?= $bk['id_buku'] ?>">Hapus</a>
+                                        <a class="btn btn-success" href="edit-buku.php?id=<?= $bk['id_buku'] ?>">Ubah</a>
                                     </td>
-                                </tr> 
+                                </tr>
                             <?php endforeach; ?>
 
                         </tbody>
@@ -105,19 +105,21 @@ require_once('function.php')
                 //mengambil data barang dari tabel dengan kode terbesar
                 $query = mysqli_query($koneksi, "SELECT max(id_buku) as kodeTerbesar FROM buku");
                 $data = mysqli_fetch_array($query);
-                $kodeBuku = $data['kodeTerbesar'];
+                $kodebuku = $data['kodeTerbesar'];
 
                 //mengambil angka dari kode barang terbesar, menggunakan fungsi substr dan di ubah ke integer dengan (int)
-                $urutan = (int) substr($kodeBuku, 2, 3);
+                $urutan = (int) substr($kodebuku, 2, 3);
 
                 //nomor yang di ambil akan di tambah 1 untuk menentukan nomor urut berikutnya
                 $urutan++;
 
+
                 //membuat kode barang baru
 
-                //angka yang di ambil tadi di gabungkan dengan kode huruf yang kita inginkan, misalnya b
+                //angka yang di ambil tadi di gabungkan dengan kode huruf yang kita inginkan, misalnya gt
                 $huruf = "bk";
-                $kodeBuku = $huruf . sprintf('%03s', $urutan);
+                $kodebuku = $huruf . sprintf('%03s', $urutan);
+
                 ?>
 
                 <!-- Modal -->
@@ -134,13 +136,7 @@ require_once('function.php')
                             </div>
                             <div class="modal-body">
                                 <form method="post" action="">
-                                    <input type="hidden" name="id_buku" id="id_buku" value="<?= $kodeBuku ?>">
-                                    <div class="form-group row">
-                                        <label for="nama_peminjam" class="col-sm-3 col-form-label">Nama Peminjam</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" id="nama_peminjam" class="form-control" name="nama_peminjam">
-                                        </div>
-                                    </div>
+                                    <input type="hidden" name="id_buku" id="id_buku" value="<?= $kodebuku ?>">
                                     <div class="form-group row">
                                         <label for="judul_buku" class="col-sm-3 col-form-label">Judul Buku</label>
                                         <div class="col-sm-8">
@@ -154,15 +150,25 @@ require_once('function.php')
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="jenis_buku" class="col-sm-3 col-form-label">Jenis Buku</label>
+                                        <label for="tahun_terbit" class="col-sm-3 col-form-label">Tahun Terbit</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="jenis_buku" name="jenis_buku">
+                                            <input type="text" id="tahun_terbit" class="form-control" name="tahun_terbit">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="tanggal_peminjaman" class="col-sm-3 col-form-label">Tanggal Peminjaman</label>
+                                        <label for="penerbit" class="col-sm-3 col-form-label">Penerbit</label>
                                         <div class="col-sm-8">
-                                            <input type="date" class="form-control" id="tanggal_peminjaman" name="tanggal_peminjaman">
+                                            <input type="text" id="penerbit" class="form-control" name="penerbit">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="status" class="col-sm-3 col-form-label">Status</label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" id="status" name="status">
+                                                <option value="tersedia">Tersedia</option>
+                                                <option value="dipinjam">Dipinjam</option>
+                                                <option value="hilang">Hilang</option>
+                                            </select>
                                         </div>
                                     </div>
                             </div>
@@ -176,10 +182,15 @@ require_once('function.php')
                 </div>
 
                 <!-- /.container-fluid -->
+
+                <!-- Modal GAnti Password-->
+
             </div>
         </div>
     </div>
 </div>
+<!-- /.container-fluid -->
+
 <?php
 include_once('templates/footer.php');
 ?>

@@ -1,3 +1,8 @@
+<?php 
+session_start();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +14,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title> ZIE PERPUSTAKAAN </title>
+  <!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 
   <!-- Bootstrap -->
   <link href="assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -63,31 +73,16 @@
               <h3>General</h3>
               <ul class="nav side-menu">
                 <li><a href="index.php"><i class="fa fa-home"></i> Home</a>
-                <li><a><i class="fa fa-edit"></i> Data User<span class="fa fa-chevron-down"></span></a>
+                <li><a href="anggota.php"><i class="fa fa-users"></i> Anggota</a>
+                <li><a href="users.php"><i class="fa fa-user"></i> Users</a>
+                <li><a href="buku.php"><i class="fa fa-book"></i> Daftar Buku</a>
+                  <li><a><i class="fa fa-bookmark"></i> Transaksi<span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
-                    <li><a href="anggota.php">Anggota</a></li>
-                    <li><a href="petugas.php">Petugas</a></li>
+                    <li><a href="peminjaman.php">Peminjaman</a></li>
+                    <li><a href="simpan_peminjaman.php">Pengembalian</a></li>
                   </ul>
-                </li>
-                <li><a><i class="fa fa-book"></i> Data Buku <span class="fa fa-chevron-down"></span> </a>
-                  <ul class="nav child_menu">
-                    <li><a href="buku.php">Peminjaman</a></li>
-                    <li><a href="pengembalian.php">Pengembalian</a></li>
-                  </ul>
-                </li>
+                </li> 
                 <li><a href="laporan.php"><i class="fa fa-file-text-o"></i> Laporan </a></li>
-              </ul>
-            </div>
-            <div class="menu_section">
-              <h3>Live On</h3>
-              <ul class="nav side-menu">
-                <li><a><i class="fa fa-bug"></i> Additional Pages <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="contacts.php">Contacts</a></li>
-                    <li><a href="profile.html">Profile</a></li>
-                  </ul>
-                </li>
-                <li><a href="javascript:void(0)"><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a></li>
               </ul>
             </div>
 

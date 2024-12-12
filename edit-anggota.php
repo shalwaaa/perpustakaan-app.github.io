@@ -34,12 +34,13 @@ if (isset($_GET['id'])) {
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form method="post" action="">
+            <form method="post" action="" enctype="multipart/form-data">
                 <input type="hidden" name="id_anggota" id="id_anggota" value="<?= $id ?>">
+                <input type="hidden" name="gambarLama" id="gambarLama" value="<?= $data['gambar']; ?>">
                 <div class="form-group row">
                     <label for="NIK" class="col-sm-3 col-form-label">NIK</label>
                     <div class="col-sm-8">
-                        <input type="text" id="NIK" class="form-control" name="NIK" value="<?= $data['NIK'] ?>">
+                        <input type="text" id="nik" class="form-control" name="nik" value="<?= $data['nik'] ?>">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -55,15 +56,30 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="tgl_bergabung" class="col-sm-3 col-form-label">Tanggal Bergabung</label>
-                    <div class="col-sm-8">
-                        <input type="date" class="form-control" id="tgl_bergabung" name="tgl_bergabung" value="<?= $data['tgl_bergabung'] ?>">
-                    </div>
-                </div>
-                <div class="form-group row">
                     <label for="no_hp" class="col-sm-3 col-form-label">No Telp/Hp</label>
                     <div class="col-sm-8">
                         <input type="text" class="form-control" id="no_hp" name="no_hp" value="<?= $data['no_hp'] ?>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-3 col-form-label">Email</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control" id="email" name="email" value="<?= $data['email'] ?>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="gambar" class="col-sm-3 col-form-label">Photo</label>
+                    <div class="col-sm-8">
+                        <input type="file" class="form-control" id="gambar" name="gambar" value="<?= $data['gambar'] ?>">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="status" class="col-sm-3 col-form-label">Status</label>
+                    <div class="col-sm-8">
+                        <select class="form-control" id="status" name="status">
+                            <option value="aktif" <?= $data['status'] == 'aktif' ? 'selected' : ''; ?>>Aktif</option>
+                            <option value="non-aktif" <?= $data['status'] == 'non-aktif' ? 'selected' : ''; ?>>Non-aktif</option>
+                        </select>
                     </div>
                 </div>
                 <div class="from-group row">

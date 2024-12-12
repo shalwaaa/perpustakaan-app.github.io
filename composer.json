@@ -1,0 +1,11 @@
+{
+    "name": "kelompok9/perpustakaan-app",
+    "autoload": {
+        "psr-4": {
+            "Kelompok9\\PerpustakaanApp\\": "src/"
+        }
+    },
+    "require": {
+        "phpoffice/phpspreadsheet": "^3.6"
+    }
+}

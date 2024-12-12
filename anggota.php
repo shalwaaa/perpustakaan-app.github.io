@@ -60,11 +60,12 @@ require_once('function.php')
                                     <input type="checkbox" id="check-all" class="flat">
                                 </th>
                                 <th class="column-title">No</th>
-                                <th class="column-title">NIK</th>
                                 <th class="column-title">Nama</th>
+                                <th class="column-title">NIK</th>
                                 <th class="column-title">Alamat</th>
-                                <th class="column-title">Tanggal Bergabung</th>
                                 <th class="column-title">No. Telp </th>
+                                <th class="column-title">Email </th>
+                                <th class="column-title">Status </th>
                                 <th class="column-title no-link last"><span class="nobr">Action</span>
                                 </th>
                                 <th class="bulk-actions" colspan="7">
@@ -86,13 +87,14 @@ require_once('function.php')
                                         <input type="checkbox" class="flat" name="table_records">
                                     </td>
                                     <td><?= $no++; ?></td>
-                                    <td><?= $agt['NIK'] ?></td>
                                     <td><?= $agt['nama_anggota'] ?></td>
+                                    <td><?= $agt['nik'] ?></td>
                                     <td><?= $agt['alamat'] ?></td>
-                                    <td><?= $agt['tgl_bergabung'] ?></td>
                                     <td><?= $agt['no_hp'] ?></td>
+                                    <td><?= $agt['email'] ?></td>
+                                    <td><?= $agt['status'] ?></td>
                                     <td>
-                                        <button type="button" class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#gantiPassword" data-id="<?= $ptg['id_petugas'] ?>">
+                                        <button type="button" class="btn btn-info btn-icon-split" data-toggle="modal" data-target="#gantiPassword" data-id="<?= $agt['id_anggota'] ?>">
                                             <span class="text">Ganti Password</span>
                                         </button>
                                         <a class="btn btn-success" href="edit-anggota.php?id=<?= $agt['id_anggota'] ?>">Ubah</a>
@@ -141,9 +143,9 @@ require_once('function.php')
                                 <form method="post" action="">
                                     <input type="hidden" name="id_anggota" id="id_anggota" value="<?= $kodeAnggota ?>">
                                     <div class="form-group row">
-                                        <label for="NIK" class="col-sm-3 col-form-label">NIK</label>
+                                        <label for="nik" class="col-sm-3 col-form-label">nik</label>
                                         <div class="col-sm-8">
-                                            <input type="text" id="NIK" class="form-control" name="NIK">
+                                            <input type="text" id="nik" class="form-control" name="nik">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -165,15 +167,24 @@ require_once('function.php')
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="tgl_bergabung" class="col-sm-3 col-form-label">Tanggal Bergabung</label>
-                                        <div class="col-sm-8">
-                                            <input type="date" class="form-control" id="tgl_bergabung" name="tgl_bergabung">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <label for="no_hp" class="col-sm-3 col-form-label">No Hp</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control" id="no_hp" name="no_hp">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                        <div class="col-sm-8">
+                                            <input type="email" class="form-control" id="email" name="email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="status" class="col-sm-3 col-form-label">Status</label>
+                                        <div class="col-sm-8">
+                                            <select class="form-control" id="status" name="status">
+                                                <option value="aktif">Aktif</option>
+                                                <option value="non-aktif">Non-aktif</option>
+                                            </select>
                                         </div>
                                     </div>
                             </div>
